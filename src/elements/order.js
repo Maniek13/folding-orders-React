@@ -38,9 +38,9 @@ class Orders extends React.Component {
   render() {
     return (
       <React.Fragment >
-      <input type="text" className={styles.name} />
-      <input type="time" step="1" className={styles.preparation_time} />
-      <select className={styles.type } defaultValue={''}  onChange={this.selectedValue.bind(this)} >
+      <input id="name" type="text" className={styles.input} />
+      <input id="preparation_time" type="time" step="1" className={styles.input} />
+      <select id="type" className={styles.input } defaultValue={''}  onChange={this.selectedValue.bind(this)} >
         <option value="" disabled >Chose a dish</option>
         <option value="pizza">Pizza</option>
         <option value="soup">Soup</option>

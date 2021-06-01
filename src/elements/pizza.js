@@ -1,11 +1,19 @@
 import React from 'react'
+import styles from '../styles/app.css'; 
 
 class Pizza extends React.Component{
     render(){
         return(
-            <div>Pizza</div>
+            <div className={styles.dish_type}>
+                <input id="no_of_slices" className={styles.input } type='number' min="0"></input>
+                <input id="diameter" className={styles.input } type='number' step="0.1"></input>
+            </div>
         );
     }
 }
 
 export default Pizza;
+
+/* no_of_slices - # of slices (number field)
+diameter - diameter (float field)
+*/
