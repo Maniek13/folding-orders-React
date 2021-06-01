@@ -4,7 +4,7 @@ import styles from '../styles/app.css';
 class Soup extends React.Component{
     render(){
         return(
-            <div className={styles.dish_type}>
+            <div className={styles.dish_tepes_form}>
                <input id="spiciness_scale" className={styles.input} type='number' min="0" max="10"></input>
             </div>
         );
