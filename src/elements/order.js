@@ -6,6 +6,7 @@ import Sandwich from './Sandwich';
 import ValidForm from './FieldValid';
 import Send from './SendData';
 
+
 class Orders extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,7 @@ class Orders extends React.Component {
       name: "",
       preparation_time: "00:00:00",
       type: "",
+      noOfSlices: 0
     }
   }
 
@@ -30,7 +32,7 @@ class Orders extends React.Component {
   kind(){
     switch (this.order.type) {
       case 'pizza':
-        return <Pizza/>;
+        return Pizza.render();
       case 'soup':
         return <Soup/>;
       case 'sandwich':
@@ -54,19 +56,19 @@ class Orders extends React.Component {
 
   kindGet(){
     if(this.order.type === 'pizza') {
-      this.order += Pizza.dishDetails();
+      this.order  = Object.assign(this.order, Pizza.dishDetails());
     }
     else if(this.order.type === 'soup'){
-      this.order += Soup.dishDetails();
+      this.order = Object.assign(this.order, Soup.dishDetails());
     }
     else if(this.order.type === 'sandwich'){
-      this.order += Sandwich.dishDetails();
+      this.order = Object.assign(this.order, Sandwich.dishDetails());
     }
   }
 
 
   submit(){
-    console.log(Pizza.dishDetails())
+    console.log(this);
     this.setState({error : false})
     if(ValidForm.valid(this.order.name, "string")  === true && ValidForm.exist(this.order.name) === true && ValidForm.valid(this.order.preparation_time, "time") === true && ValidForm.exist(this.order.type) === true && this.kindValid() === true){
       this.kindGet();

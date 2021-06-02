@@ -1,32 +1,43 @@
-import React from 'react'
+import React  from 'react'
 import styles from '../styles/app.css';
 import ValidForm from './FieldValid';
 
 class Pizza extends React.Component{
-    dish_details = {
-        noOfSlices : "",
-        diameter : ""
-    } 
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            noOfSlices : 0,
+            diameter : 0
+        }
+    }
 
-    static valid(){
-        if(ValidForm.exist(this.noOfSlices) === true && ValidForm.exist(this.diameter) === true){
+    valid(){
+        if(ValidForm.exist(this.state.noOfSlices) === true && ValidForm.exist(this.state.diameter) === true){
             return true;
         }
         else{
             return false;
         } 
     }
+   
+    dishDetails(){
+        return this.state;
+    }
 
-    static dishDetails(){
-        console.log(this.dish_details);
-        return this.dish_details;
+    noOfSlices(e){
+        this.setState({noOfSlices : e.target.value});
+    }
+
+    diameter(e){
+        this.setState({diameter : e.target.value});
     }
 
     render(){
         return(
             <div className={styles.dish_tepes_form}>
-                <input id="no_of_slices" className={styles.input } type='number' min="0" onChange={e => this.dish_details.noOfSlices = e.target.value}></input>
-                <input id="diameter" className={styles.input } type='number' step="0.1" min="10" onChange={e => this.dish_details.diameter = e.target.value}></input>
+                <input id="no_of_slices" className={styles.input } type='number' min="0" onChange={this.noOfSlices.bind(this)}></input>
+                <input id="diameter" className={styles.input } type='number' step="0.1" min="10" onChange={this.diameter.bind(this)}></input>
             </div>
         );
     }

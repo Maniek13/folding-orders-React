@@ -3,10 +3,16 @@ import styles from '../styles/app.css';
 import ValidForm from './FieldValid';
 
 class Sandwich extends React.Component{
-    static dish_details = {slicesOfBread : ""};
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            slicesOfBread : 0
+        }
+    }
 
-    static valid(){
-        if(ValidForm.exist(this.slicesOfBread) === true){
+    valid(){
+        if(ValidForm.exist(this.state.slicesOfBread) === true){
             return true;
         }
         else{
@@ -14,14 +20,19 @@ class Sandwich extends React.Component{
         } 
     }
 
-    static dishDetails(){
-        return this.dish_details;
+    dishDetails(){
+        return this.state;
     }
+
+    spicinessScale(e){
+        this.setState({slicesOfBread : e.target.value});
+    }
+
 
     render(){
         return(
             <div className={styles.dish_tepes_form}>
-                <input id="slices_of_bread" className={styles.input} type='number'  min="0" onChange={e => this.dish_details.slicesOfBread = e.target.value}></input>
+                <input id="slices_of_bread" className={styles.input} type='number'  min="0" onChange={this.spicinessScale.bind(this)}></input>
             </div>
         );
     }

@@ -3,10 +3,16 @@ import styles from '../styles/app.css';
 import ValidForm from './FieldValid';
 
 class Soup extends React.Component{
-    dish_details = {spicinessScale : ""};
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            spicinessScale : 0
+        }
+    }
 
-    static valid(){
-        if(ValidForm.exist(this.spicinessScale) === true){
+    valid(){
+        if(ValidForm.exist(this.state.spicinessScale) === true){
             return true;
         }
         else{
@@ -14,14 +20,18 @@ class Soup extends React.Component{
         } 
     }
 
-    static dishDetails(){
-        return this.dish_details;
+    dishDetails(){
+        return this.state;
+    }
+
+    spicinessScale(e){
+        this.setState({spicinessScale : e.target.value});
     }
 
     render(){
         return(
             <div className={styles.dish_tepes_form}>
-               <input id="spiciness_scale" className={styles.input} type='number' min="0" max="10" onChange={e => this.dish_details.spicinessScale = e.target.value}></input>
+               <input id="spiciness_scale" className={styles.input} type='number' min="0" max="10" onChange={this.spicinessScale.bind(this)}></input>
             </div>
         );
     }
