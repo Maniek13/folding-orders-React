@@ -19,8 +19,7 @@ class Orders extends React.Component {
     this.order = {
       name: "",
       preparation_time: "00:00:00",
-      type: "",
-      noOfSlices: 0
+      type: ""
     }
   }
 
@@ -32,7 +31,7 @@ class Orders extends React.Component {
   kind(){
     switch (this.order.type) {
       case 'pizza':
-        return Pizza.render();
+        return <Pizza/>;
       case 'soup':
         return <Soup/>;
       case 'sandwich':
@@ -66,9 +65,7 @@ class Orders extends React.Component {
     }
   }
 
-
   submit(){
-    console.log(this);
     this.setState({error : false})
     if(ValidForm.valid(this.order.name, "string")  === true && ValidForm.exist(this.order.name) === true && ValidForm.valid(this.order.preparation_time, "time") === true && ValidForm.exist(this.order.type) === true && this.kindValid() === true){
       this.kindGet();
@@ -80,7 +77,6 @@ class Orders extends React.Component {
       this.setState({error : true})
     }
   }
-
 
   render() {
     return (
