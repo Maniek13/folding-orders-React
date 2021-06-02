@@ -1,7 +1,7 @@
 
 
 class Static {
-    static defaultProps = {}
+    static dishDetails = {}
 }
 
 export default Static;

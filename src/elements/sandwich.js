@@ -25,7 +25,7 @@ class Sandwich extends React.Component{
     }
 
     spicinessScale(e){
-        this.setState({slicesOfBread : e.target.value});
+        Static.dishDetails = {slicesOfBread : e.target.value};
     }
 
 

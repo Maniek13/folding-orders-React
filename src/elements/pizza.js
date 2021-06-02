@@ -20,7 +20,7 @@ class Pizza extends React.Component{
     }
 
     valid(){
-        if(ValidForm.exist(this.state.noOfSlices) === true && ValidForm.exist(this.state.diameter) === true){
+        if(ValidForm.exist(Static.dishDetails.noOfSlices) === true && ValidForm.exist(Static.dishDetails.diameter) === true){
             return true;
         }
         else{
@@ -29,11 +29,11 @@ class Pizza extends React.Component{
     }
 
     noOfSlices(e){
-        Static.defaultProps = {noOfSlices : e.target.value};
+        Static.dishDetails = {noOfSlices : e.target.value};
     }
 
     diameter(e){
-        Static.defaultProps =  {diameter : e.target.value};
+        Static.dishDetails =  {diameter : e.target.value};
     }
 
 

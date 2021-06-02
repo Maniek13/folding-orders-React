@@ -20,12 +20,8 @@ class Soup extends React.Component{
         } 
     }
 
-    dishDetails(){
-        return this.state;
-    }
-
     spicinessScale(e){
-        this.setState({spicinessScale : e.target.value});
+        Static.dishDetails = {spicinessScale : e.target.value};
     }
 
     render(){
