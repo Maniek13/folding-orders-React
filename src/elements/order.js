@@ -5,6 +5,7 @@ import Soup from './Soup';
 import Sandwich from './Sandwich';
 import ValidForm from './FieldValid';
 import Send from './SendData';
+import Static from "./Static";
 
 
 class Orders extends React.Component {
@@ -65,7 +66,9 @@ class Orders extends React.Component {
     }
   }
 
+
   submit(){
+    console.log(Static.defaultProps)
     this.setState({error : false})
     if(ValidForm.valid(this.order.name, "string")  === true && ValidForm.exist(this.order.name) === true && ValidForm.valid(this.order.preparation_time, "time") === true && ValidForm.exist(this.order.type) === true && this.kindValid() === true){
       this.kindGet();

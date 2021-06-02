@@ -1,8 +1,15 @@
 import React  from 'react'
 import styles from '../styles/app.css';
 import ValidForm from './FieldValid';
+import Static from "./Static";
 
 class Pizza extends React.Component{
+
+    static defaultProps = {
+        noOfSlices : 0,
+            diameter : 0
+      }
+
     constructor(props) {
         super(props);
     
@@ -20,18 +27,15 @@ class Pizza extends React.Component{
             return false;
         } 
     }
-   
-    dishDetails(){
-        return this.state;
-    }
 
     noOfSlices(e){
-        this.setState({noOfSlices : e.target.value});
+        Static.defaultProps = {noOfSlices : e.target.value};
     }
 
     diameter(e){
-        this.setState({diameter : e.target.value});
+        Static.defaultProps =  {diameter : e.target.value};
     }
+
 
     render(){
         return(
