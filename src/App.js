@@ -1,5 +1,5 @@
 import './styles/app.css';
-import Order from './elements/order';
+import Order from './elements/Order';
 
 
 function App() {
