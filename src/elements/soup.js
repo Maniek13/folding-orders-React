@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/app.css'; 
 import ValidForm from './FieldValid';
+import Static from "./Static";
 
 class Soup extends React.Component{
     constructor(props) {

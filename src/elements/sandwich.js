@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/app.css'; 
 import ValidForm from './FieldValid';
+import Static from "./Static";
 
 class Sandwich extends React.Component{
     constructor(props) {
